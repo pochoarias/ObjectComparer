@@ -1,0 +1,491 @@
+{
+  "ObjectComparer.dll": {
+    "C:\\Users\\pocho\\Documents\\GitHub\\ObjectComparer\\ObjectComparer\\ObjectComparer.cs": {
+      "ObjectComparer.ObjectComparer": {
+        "System.Collections.Generic.Dictionary`2<System.Type,System.Reflection.PropertyInfo[]> ObjectComparer.ObjectComparer::get_CacheProperties()": {
+          "Lines": {
+            "13": 6
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.Dictionary`2<System.Type,System.Reflection.FieldInfo[]> ObjectComparer.ObjectComparer::get_CacheFields()": {
+          "Lines": {
+            "14": 4
+          },
+          "Branches": []
+        },
+        "System.Reflection.PropertyInfo[] ObjectComparer.ObjectComparer::GetCacheProperties(System.Type)": {
+          "Lines": {
+            "22": 2,
+            "24": 2,
+            "25": 0,
+            "26": 0,
+            "29": 2,
+            "30": 2,
+            "31": 2,
+            "32": 2
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 17,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Reflection.FieldInfo[] ObjectComparer.ObjectComparer::GetCacheFields(System.Type)": {
+          "Lines": {
+            "40": 1,
+            "42": 1,
+            "43": 0,
+            "44": 0,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "50": 1
+          },
+          "Branches": [
+            {
+              "Line": 42,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 17,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean ObjectComparer.ObjectComparer::CompareElements(T,T)": {
+          "Lines": {
+            "60": 2,
+            "61": 2,
+            "62": 0,
+            "63": 0,
+            "66": 2,
+            "67": 2,
+            "69": 2,
+            "70": 0,
+            "71": 0,
+            "74": 2,
+            "75": 2,
+            "76": 1,
+            "78": 1,
+            "79": 1,
+            "80": 0,
+            "82": 1,
+            "84": 2
+          },
+          "Branches": [
+            {
+              "Line": 61,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 7,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 61,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 25,
+              "EndOffset": 36,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 66,
+              "Offset": 43,
+              "EndOffset": 45,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 66,
+              "Offset": 43,
+              "EndOffset": 49,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 67,
+              "Offset": 62,
+              "EndOffset": 64,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 67,
+              "Offset": 62,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            },
+            {
+              "Line": 69,
+              "Offset": 85,
+              "EndOffset": 87,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 69,
+              "Offset": 85,
+              "EndOffset": 99,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 2
+            },
+            {
+              "Line": 75,
+              "Offset": 123,
+              "EndOffset": 125,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 1
+            },
+            {
+              "Line": 75,
+              "Offset": 123,
+              "EndOffset": 130,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 1
+            },
+            {
+              "Line": 79,
+              "Offset": 154,
+              "EndOffset": 156,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 79,
+              "Offset": 154,
+              "EndOffset": 161,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean ObjectComparer.ObjectComparer::AnalyzeFields(T,T,System.Reflection.FieldInfo[])": {
+          "Lines": {
+            "87": 1,
+            "88": 3,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "93": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "100": 0,
+            "101": 1,
+            "102": 1
+          },
+          "Branches": [
+            {
+              "Line": 88,
+              "Offset": 99,
+              "EndOffset": 8,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 56,
+              "EndOffset": 58,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 59,
+              "EndOffset": 61,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 59,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 56,
+              "EndOffset": 77,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 82,
+              "EndOffset": 84,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 95,
+              "Offset": 82,
+              "EndOffset": 90,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 88,
+              "Offset": 99,
+              "EndOffset": 101,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean ObjectComparer.ObjectComparer::AnalyzeProperties(T,T,System.Reflection.PropertyInfo[])": {
+          "Lines": {
+            "106": 2,
+            "107": 65,
+            "108": 30,
+            "109": 30,
+            "110": 30,
+            "112": 30,
+            "114": 30,
+            "115": 1,
+            "116": 1,
+            "119": 29,
+            "120": 1,
+            "121": 2
+          },
+          "Branches": [
+            {
+              "Line": 107,
+              "Offset": 101,
+              "EndOffset": 8,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 30
+            },
+            {
+              "Line": 114,
+              "Offset": 58,
+              "EndOffset": 60,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 29
+            },
+            {
+              "Line": 114,
+              "Offset": 61,
+              "EndOffset": 63,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 29
+            },
+            {
+              "Line": 114,
+              "Offset": 61,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 114,
+              "Offset": 58,
+              "EndOffset": 79,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 114,
+              "Offset": 84,
+              "EndOffset": 86,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 114,
+              "Offset": 84,
+              "EndOffset": 92,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 29
+            },
+            {
+              "Line": 107,
+              "Offset": 101,
+              "EndOffset": 103,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void ObjectComparer.ObjectComparer::AnalyzeComplexTypes(System.Type)": {
+          "Lines": {
+            "124": 30,
+            "125": 30,
+            "126": 0,
+            "128": 0,
+            "129": 30
+          },
+          "Branches": [
+            {
+              "Line": 125,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 125,
+              "Offset": 12,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 30
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\pocho\\Documents\\GitHub\\ObjectComparer\\ObjectComparer\\Program.cs": {
+      "ObjectComparer.Program": {
+        "System.Void ObjectComparer.Program::Main(System.String[])": {
+          "Lines": {
+            "8": 0,
+            "9": 0,
+            "18": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\pocho\\Documents\\GitHub\\ObjectComparer\\ObjectComparer\\Extensions\\TypeExtension.cs": {
+      "ObjectComparer.Extensions.TypeExtension": {
+        "System.Boolean ObjectComparer.Extensions.TypeExtension::IsSimpleType(System.Type)": {
+          "Lines": {
+            "13": 30,
+            "14": 30,
+            "15": 30,
+            "16": 30,
+            "17": 30,
+            "18": 30,
+            "19": 30,
+            "20": 30,
+            "21": 30,
+            "22": 30,
+            "23": 30,
+            "24": 30,
+            "25": 30,
+            "26": 30,
+            "27": 30
+          },
+          "Branches": [
+            {
+              "Line": 14,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 14,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 14,
+              "Offset": 107,
+              "EndOffset": 109,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 14,
+              "Offset": 7,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 30
+            },
+            {
+              "Line": 14,
+              "Offset": 15,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 30
+            },
+            {
+              "Line": 14,
+              "Offset": 107,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 30
+            }
+          ]
+        }
+      }
+    }
+  }
+}
