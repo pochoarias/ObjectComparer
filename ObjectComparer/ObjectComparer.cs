@@ -6,47 +6,41 @@ using System.Reflection;
 
 namespace ObjectComparer
 {
+    /// <summary>
+    /// Class design to compare to objects
+    /// </summary>
     public class ObjectComparer : IObjectComparer
     {
+        /// <summary>
+        /// Deep or Shallow searches
+        /// </summary>
         public bool DeepCompare { get; set; } = false;
-        public string Differences { get; set; } = "";
-        private Dictionary<Type, PropertyInfo[]> CacheProperties { get; set; } = new Dictionary<Type, PropertyInfo[]>();
-        private Dictionary<Type, FieldInfo[]> CacheFields { get; set; } = new Dictionary<Type, FieldInfo[]>();
+
+        /// <summary>
+        /// Stores the differences between the objects
+        /// </summary>
+        public string Differences { get; set; } = ""; // TO-DO: Store the differences
+
+        /// <summary>
+        /// Stores the fieldsInfo and PrpertyInfo
+        /// </summary>
+        private Dictionary<Type, MemberInfo[]> CacheMemberInfo { get; set; } = new Dictionary<Type, MemberInfo[]>();
 
         /// <summary>
         /// Caches the properties based on a type
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        private PropertyInfo[] GetCacheProperties(Type input)
+        private MemberInfo[] GetCacheMemberInfo(Type input)
         {
-
-            if (CacheProperties.TryGetValue(input, out var propertyInfos))
+            if (CacheMemberInfo.TryGetValue(input, out var propertyInfos))
             {
                 return propertyInfos;
             }
-
-            var properties = input.GetProperties(BindingFlags.Public | BindingFlags.Instance).ToArray();
-            CacheProperties.Add(input, properties);
-            return properties;
-        }
-
-        /// <summary>
-        /// Caches the fields based on the type
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private FieldInfo[] GetCacheFields(Type input)
-        {
-
-            if (CacheFields.TryGetValue(input, out var fieldInfos))
-            {
-                return fieldInfos;
-            }
-
-            var fields = input.GetFields(BindingFlags.Public | BindingFlags.Instance).ToArray();
-            CacheFields.Add(input, fields);
-            return fields;
+            
+            var memberInfos = input.GetMembers().Where(x=> x.MemberType == MemberTypes.Field || x.MemberType == MemberTypes.Property).ToArray();
+            CacheMemberInfo.Add(input, memberInfos);
+            return memberInfos;
         }
 
         /// <summary>
@@ -61,6 +55,7 @@ namespace ObjectComparer
             if (input1 == null || input2 == null)
             {
                 return false;
+                //TO-DO: Register the differences
             }
 
             Type type1 = input1.GetType();
@@ -69,26 +64,30 @@ namespace ObjectComparer
             if (type1 != type2)
             {
                 return false;
-                //throw new Exception("Object types are not the same");
+                //TO-DO: Register the differences
             }
 
-            var cacheProperties = GetCacheProperties(type1);
-            if (!AnalyzeProperties(input1, input2, cacheProperties))
-                return false;
-
-            var cahcheFields = GetCacheFields(type1);
-            if (!AnalyzeFields(input1, input2, cahcheFields))
+            var cacheProperties = GetCacheMemberInfo(type1);
+            if (!AnalyzeMembers(input1, input2, cacheProperties))
                 return false;
 
             return true;
-
         }
 
-        private bool AnalyzeFields<T>(T input1, T input2, FieldInfo[] cahcheFields) where T : class
+        /// <summary>
+        /// Compares properties and fields
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <param name="cahcheFields"></param>
+        /// <returns></returns>
+        private bool AnalyzeMembers<T>(T input1, T input2, MemberInfo[] cahcheFields) where T : class
         {
             foreach (var cacheField in cahcheFields)
             {
-                if (cacheField.FieldType.IsSimpleType())
+                var type = cacheField.GetUnderlyingType();
+                if (type.IsSimpleType())
                 {
                     var value1 = cacheField.GetValue(input1);
                     var value2 = cacheField.GetValue(input2);
@@ -96,69 +95,37 @@ namespace ObjectComparer
                     if (value1 != value2 && (value1 == null || !value1.Equals(value2)))
                     {
                         return false;
-                        //throw new Exception("Object values are not the same"); //TO-DO: Register the differences
+                        //TO-DO: Register the differences
                     }
                     continue;
                 }
 
                 if (this.DeepCompare)
                 {
-                    if (AnalyzeComplexTypes(input1, input2, cacheField))
-                    {
-                        continue;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-
-
-        private bool AnalyzeProperties<T>(T input1, T input2, PropertyInfo[] cacheProperties) where T : class
-        {
-            foreach (var cacheProperty in cacheProperties)
-            {
-                if (cacheProperty.PropertyType.IsSimpleType())
-                {
-                    var value1 = cacheProperty.GetValue(input1);
-                    var value2 = cacheProperty.GetValue(input2);
-
-                    if (value1 != value2 && (value1 == null || !value1.Equals(value2)))
+                    if (!AnalyzeComplexTypes(input1, input2, cacheField))
                     {
                         return false;
-                        //throw new Exception("Object values are not the same"); //TO-DO: Register the differences
+                        //TO-DO: Register the differences
                     }
                     continue;
                 }
-
-                if (this.DeepCompare) {
-                    if (AnalyzeComplexTypes(input1, input2, cacheProperty))
-                    {
-                        continue;
-                    }
-                    return false;
-                }
             }
             return true;
         }
 
-        private bool AnalyzeComplexTypes<T>(T input1, T input2, PropertyInfo propertyInfo)
+        /// <summary>
+        /// Deep compare of objects
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="input1"></param>
+        /// <param name="input2"></param>
+        /// <param name="propertyInfo"></param>
+        /// <returns></returns>
+        private bool AnalyzeComplexTypes<T>(T input1, T input2, MemberInfo propertyInfo)
         {
-
-            var value1 = propertyInfo.GetValue(input1, null);
-            var value2 = propertyInfo.GetValue(input2, null);
+            var value1 = propertyInfo.GetValue(input1);
+            var value2 = propertyInfo.GetValue(input2);
             return CompareElements(value1, value2);
-
         }
-
-        private bool AnalyzeComplexTypes<T>(T input1, T input2, FieldInfo fieldInfo)
-        {
-            var value1 = fieldInfo.GetValue(input1);
-            var value2 = fieldInfo.GetValue(input2);
-            return CompareElements(value1, value2);
-
-        }
-
-
     }
 }
