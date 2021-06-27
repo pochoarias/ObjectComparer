@@ -6,7 +6,15 @@ namespace ObjectComparer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var comparer = new ObjectComparer();
+
+            //Planet jupiter = new Planet("Jupiter", 3.65e08);
+            //Planet pluto = new Planet("Jupiter", 3.65e08);
+
+
+            //comparer.CompareElements(jupiter, pluto);
+
+            //Console.ReadLine();
         }
     }
 }
